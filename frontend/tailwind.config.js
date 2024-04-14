@@ -6,6 +6,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [plugin()],
+  plugins: [plugin],
 }
 
