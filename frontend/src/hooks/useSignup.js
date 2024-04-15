@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/AuthContext";
 
 const useSignup = ()=>{
     const [loading, setLoading] = useState(false);
-    const {authUser,setAuthUser}=useAuthContext();
+    const {setAuthUser}=useAuthContext();
 
     const signup = async ({fullName,username,password,confirmPassword,gender}) =>{
         const success = handleInputError({fullName,username,password,confirmPassword,gender})
@@ -23,6 +23,7 @@ const useSignup = ()=>{
                 throw new Error(data.error)
             }
             localStorage.getItem("chat-user",JSON.stringify(data));
+            setAuthUser(data);
         } catch (error) {
            toast.error(error.message) ;
         }finally{
